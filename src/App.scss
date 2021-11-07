@@ -1,0 +1,61 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  header {
+    text-align: center;
+  }
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #10b8c1;
+    border-width: 0;
+    border-style: solid;
+    border-color: #f6e49c;
+
+    &.wide {
+      border-width: 0 1em;
+    }
+
+    &.narrow {
+      border-width: 1em 0;
+    }
+
+    .play-audio {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 16em;
+      height: 16em;
+      opacity: 0.75;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .stage {
+      position: relative;
+      background-color: #ffffff;
+      background-image: url("pomus/bg.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .animated-object {
+      position: absolute;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
