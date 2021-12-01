@@ -1,6 +1,6 @@
-import { HTMLMotionProps, motion } from "framer-motion";
-import { List, Map } from "immutable";
-import { Fragment, useMemo } from "react";
+import { HTMLMotionProps } from "framer-motion";
+import gsap from "gsap";
+import { HTMLAttributes, useMemo } from "react";
 
 import please_wait from "./pomus/0/please_wait.png";
 import puffing_the_pomus from "./pomus/0/puffing_the_pomus.png";
@@ -14,6 +14,16 @@ type AnimatedObject = {
   src: string;
   props: HTMLMotionProps<"div">;
 };
+
+type MakeTimelineFn = (selector: string) => gsap.core.Timeline;
+
+type AnimatedObjectGsap = {
+  src: string;
+  makeTimeline: MakeTimelineFn;
+  props?: HTMLAttributes<HTMLDivElement>;
+};
+
+const NO_TIMELINE = () => new gsap.core.Timeline();
 
 function pct(n: number): string {
   return `${n * 100}%`;
@@ -50,6 +60,39 @@ function cdim(
   height: string;
 } {
   return ltdim(x - width / 2, y - height / 2, width, height);
+}
+
+// cx, cy, width, height, rotation
+type TransformInput = [number, number, number, number, string];
+
+function animateTransform(transforms: ReadonlyArray<TransformInput>): {
+  left: string[];
+  top: string[];
+  width: string[];
+  height: string[];
+  rotate: string[];
+} {
+  const left = [];
+  const top = [];
+  const width = [];
+  const height = [];
+  const rotate = [];
+  for (const transform of transforms) {
+    const style = cdim(transform[0], transform[1], transform[2], transform[3]);
+    left.push(style.left);
+    top.push(style.top);
+    width.push(style.width);
+    height.push(style.height);
+    rotate.push(transform[4]);
+  }
+
+  return {
+    left,
+    top,
+    width,
+    height,
+    rotate,
+  };
 }
 
 const OBJECT_GROUP_KEYS = [
@@ -127,6 +170,47 @@ const OBJECT_GROUPS: { [key in ObjectGroupKey]: ObjectGroup } = {
         },
       },
     },
+    {
+      src: p1,
+      props: {
+        style: {
+          scaleX: -1,
+        },
+        animate: {
+          ...animateTransform([
+            [1170, 1188, 508, 699, "165deg"],
+            [1170, 1188, 508, 699, "-165deg"],
+            [1170, 1188, 508, 699, "165deg"],
+            [1170, 1188, 508, 699, "-165deg"],
+            [1170, 1188, 508, 699, "165deg"],
+            [1170, 1188, 508, 699, "-165deg"],
+            [1170, 1188, 508, 699, "165deg"],
+            [1170, 1188, 508, 699, "-165deg"],
+            [1809, 498, 508, 699, "65deg"],
+            [1809, 498, 508, 699, "115deg"],
+            [1809, 498, 508, 699, "65deg"],
+            [1809, 498, 508, 699, "115deg"],
+            [1809, 498, 508, 699, "65deg"],
+            [1809, 498, 508, 699, "115deg"],
+            [1809, 498, 508, 699, "65deg"],
+            [1809, 498, 508, 699, "115deg"],
+            [730, 703, 508, 699, "165deg"],
+            [730, 703, 508, 699, "-165deg"],
+            [730, 703, 508, 699, "165deg"],
+            [730, 703, 508, 699, "-165deg"],
+            [730, 703, 508, 699, "165deg"],
+            [730, 703, 508, 699, "-165deg"],
+            [730, 703, 508, 699, "165deg"],
+            [730, 703, 508, 699, "-165deg"],
+          ]),
+        },
+        transition: {
+          duration: 1.2 * 4 * 3,
+          repeat: Infinity,
+          ease: (t: number): number => (t < 0.5 ? 0 : 1),
+        },
+      },
+    },
   ],
   // Chibi Pomu from @walfieee
   // https://twitter.com/walfieee/status/1394080386431524868
@@ -190,6 +274,168 @@ const OBJECT_GROUPS: { [key in ObjectGroupKey]: ObjectGroup } = {
   ],
 };
 
+type ObjectGroupGsap = ReadonlyArray<AnimatedObjectGsap>;
+
+const OBJECT_GROUPS_GSAP: { [key in ObjectGroupKey]: ObjectGroupGsap } = {
+  // Base text animated on the background
+  bg_text: [
+    {
+      src: puffing_the_pomus,
+      makeTimeline: (selector: string): gsap.core.Timeline => {
+        const tl = new gsap.core.Timeline({ repeat: -1 });
+        tl.set(selector, { opacity: 0 });
+        tl.to(selector, { opacity: 1, duration: 1 }, 0);
+        tl.to(selector, { opacity: 0, duration: 1 }, 3.5);
+        tl.set(selector, {}, 10);
+        return tl;
+      },
+      props: {
+        style: {
+          position: "absolute",
+          left: "0%",
+          top: "0%",
+          width: "100%",
+          height: "100%",
+        },
+      },
+    },
+    {
+      src: please_wait,
+      makeTimeline: (selector: string): gsap.core.Timeline => {
+        const tl = new gsap.core.Timeline({ repeat: -1 });
+        tl.set(selector, { opacity: 0 });
+        tl.to(selector, { opacity: 1, duration: 1 }, 5.5);
+        tl.to(selector, { opacity: 0, duration: 1 }, 9);
+        return tl;
+      },
+      props: {
+        style: {
+          position: "absolute",
+          left: "0%",
+          top: "0%",
+          width: "100%",
+          height: "100%",
+        },
+      },
+    },
+  ],
+  // Original pomus since the debut stream
+  // https://www.youtube.com/watch?v=e0KSfSf7BuQ
+  original_pomus: [
+    {
+      src: p1,
+      makeTimeline: (selector: string): gsap.core.Timeline => {
+        const tl = new gsap.core.Timeline({ repeat: -1 });
+        tl.set(selector, { rotate: "15deg" });
+        tl.set(selector, { rotate: "-15deg" }, 0.6);
+        tl.set(selector, {}, 1.2);
+        return tl;
+      },
+      props: {
+        style: {
+          ...cdim(328, 698, 508, 699),
+        },
+      },
+    },
+    {
+      src: p1,
+      makeTimeline: (selector: string): gsap.core.Timeline => {
+        const tl = new gsap.core.Timeline({ repeat: -1 });
+
+        const t1 = new gsap.core.Timeline({ repeat: 3 });
+        t1.set(selector, { ...cdim(1170, 1188, 508, 699), rotate: "165deg" });
+        t1.set(selector, { rotate: "-165deg" }, 0.6);
+        t1.set(selector, {}, 1.2);
+        tl.add(t1);
+
+        const t2 = new gsap.core.Timeline({ repeat: 3 });
+        t2.set(selector, { ...cdim(1809, 498, 508, 699), rotate: "65deg" });
+        t2.set(selector, { rotate: "115deg" }, 0.6);
+        t2.set(selector, {}, 1.2);
+        tl.add(t2);
+
+        const t3 = new gsap.core.Timeline({ repeat: 3 });
+        t3.set(selector, { ...cdim(730, 703, 508, 699), rotate: "165deg" });
+        t3.set(selector, { rotate: "-165deg" }, 0.6);
+        t3.set(selector, {}, 1.2);
+        tl.add(t3);
+
+        return tl;
+      },
+      props: {
+        style: {
+          scale: "-1",
+        },
+      },
+    },
+  ],
+  // Chibi Pomu from @walfieee
+  // https://twitter.com/walfieee/status/1394080386431524868
+  // https://www.youtube.com/watch?v=FgoO57-TGkM
+  walfie_pomu_chibi_1: [
+    {
+      src: walfie_pomu_chibi_1,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...ltdim(1343, 548, 576, 576),
+        },
+      },
+    },
+  ],
+  // Birthday chibi Pomu
+  // https://twitter.com/walfieee/status/1414435834246406150
+  walfie_pomu_chibi_2: [
+    {
+      src: walfie_pomu_chibi_2,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...ltdim(1348, 536, 544, 544),
+        },
+      },
+    },
+  ],
+  // Money tossing chibi Pomu
+  // https://twitter.com/walfieee/status/1408645860813119489
+  walfie_pomu_chibi_3: [
+    {
+      src: walfie_pomu_chibi_3,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...ltdim(987, 469, 568, 568),
+        },
+      },
+    },
+  ],
+  // Birthday chips eating chibi Finana
+  // https://twitter.com/walfieee/status/1407137606828187652
+  walfie_finana_chibi_1: [
+    {
+      src: walfie_finana_chibi_1,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...ltdim(687, 599, 440, 450),
+        },
+      },
+    },
+  ],
+  // Money tossing chibi Pomu but in the bottom right
+  walfie_pomu_chibi_3b: [
+    {
+      src: walfie_pomu_chibi_3,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...ltdim(1352, 512, 567, 567),
+        },
+      },
+    },
+  ],
+};
+
 const VERSIONS: ReadonlyArray<ReadonlyArray<ObjectGroupKey>> = [
   // Version 0, base bg text
   ["bg_text"],
@@ -227,45 +473,54 @@ const VERSIONS: ReadonlyArray<ReadonlyArray<ObjectGroupKey>> = [
 export const MAX_POMUS = VERSIONS.length - 1;
 
 export default function usePomus(pomus: number): {
-  pomuElements: List<JSX.Element | null>;
+  pomuElements: ReadonlyArray<JSX.Element>;
+  pomuTimelines: ReadonlyArray<MakeTimelineFn>;
 } {
-  const objectGroups = useMemo(
-    (): Map<ObjectGroupKey, JSX.Element> =>
-      Map(
-        OBJECT_GROUP_KEYS.map(
-          (key: ObjectGroupKey): [ObjectGroupKey, JSX.Element] => [
-            key,
-            <Fragment key={key}>
-              {OBJECT_GROUPS[key].map(
-                (object: AnimatedObject, index: number): JSX.Element => (
-                  <motion.div
-                    key={`${key}-${object.src}-${index}`}
-                    className="animated-object"
-                    {...object.props}
-                  >
-                    <img src={object.src} alt="pomu" />
-                  </motion.div>
-                )
-              )}
-            </Fragment>,
-          ]
-        )
-      ),
-    []
-  );
+  const objects = useMemo((): ReadonlyArray<
+    [ObjectGroupKey, JSX.Element, MakeTimelineFn]
+  > => {
+    const objects: Array<[ObjectGroupKey, JSX.Element, MakeTimelineFn]> = [];
+    let index = 0;
+    for (const key of OBJECT_GROUP_KEYS) {
+      for (const object of OBJECT_GROUPS_GSAP[key]) {
+        const id = `${index++}`;
+        const element = (
+          <div
+            key={id}
+            id={`p${id}`}
+            className="animated-object"
+            {...object.props}
+          >
+            <img src={object.src} alt="pomu" />
+          </div>
+        );
+        //const timeline = object.makeTimeline(`#${id}`);
+        objects.push([key, element, object.makeTimeline]);
+      }
+    }
+    return objects;
+  }, []);
 
-  const pomuElements = useMemo(
-    (): List<JSX.Element | null> =>
-      List(
-        VERSIONS[pomus].map(
-          (key: ObjectGroupKey): JSX.Element | null =>
-            objectGroups.get(key) ?? null
-        )
-      ),
-    [objectGroups, pomus]
-  );
+  const pomuElements = useMemo((): ReadonlyArray<JSX.Element> => {
+    return VERSIONS[pomus].flatMap((key: ObjectGroupKey): JSX.Element[] =>
+      objects
+        .filter(([objectKey]) => key === objectKey)
+        .map(([, element]) => element)
+    );
+  }, [objects, pomus]);
+
+  // Pass back the timeline constructors instead of actual timelines so that
+  // DOM can load the elements first.
+  const pomuTimelines = useMemo((): ReadonlyArray<MakeTimelineFn> => {
+    return VERSIONS[pomus].flatMap((key: ObjectGroupKey): MakeTimelineFn[] =>
+      objects
+        .filter(([objectKey]) => key === objectKey)
+        .map(([, , makeTimeline]) => makeTimeline)
+    );
+  }, [objects, pomus]);
 
   return {
     pomuElements,
+    pomuTimelines,
   };
 }

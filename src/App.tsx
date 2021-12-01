@@ -1,3 +1,4 @@
+import gsap from "gsap";
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 
 import "./App.scss";
@@ -27,7 +28,7 @@ export default function App(): JSX.Element {
     height: window.innerHeight,
   });
 
-  const { pomuElements } = usePomus(pomus);
+  const { pomuElements, pomuTimelines } = usePomus(pomus);
 
   const play = useCallback((): void => {
     if (audio.current != null) {
@@ -92,6 +93,16 @@ export default function App(): JSX.Element {
     }
   }, [windowSize]);
 
+  useEffect(() => {
+    const tl = new gsap.core.Timeline();
+    for (let i = 0; i < pomuTimelines.length; i++) {
+      tl.add(pomuTimelines[i](`#p${i}`), 0);
+    }
+    return (): void => {
+      tl.kill();
+    };
+  }, [pomuTimelines]);
+
   return (
     <div className="app">
       <header>
@@ -124,7 +135,7 @@ export default function App(): JSX.Element {
             height: `${containerSize.height}px`,
           }}
         >
-          {pomuElements.toJS()}
+          {pomuElements}
         </div>
       </main>
       <audio
