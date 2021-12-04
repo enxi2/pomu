@@ -11,6 +11,14 @@ type Dimensions = {
   height: number;
 };
 
+declare global {
+  interface Window {
+    POMU: any;
+  }
+}
+
+window.POMU = {};
+
 export default function App(): JSX.Element {
   const audio = useRef<HTMLAudioElement>(null);
   const main = useRef<HTMLDivElement>(null);
@@ -98,6 +106,7 @@ export default function App(): JSX.Element {
     for (let i = 0; i < pomuTimelines.length; i++) {
       tl.add(pomuTimelines[i](`#p${i}`), 0);
     }
+    window.POMU.timeline = tl;
     return (): void => {
       tl.kill();
     };

@@ -1,4 +1,3 @@
-import { HTMLMotionProps } from "framer-motion";
 import gsap from "gsap";
 import { HTMLAttributes, useMemo } from "react";
 
@@ -10,10 +9,12 @@ import walfie_pomu_chibi_2 from "./pomus/3/walfie_pomu_chibi_2.gif";
 import walfie_pomu_chibi_3 from "./pomus/4/walfie_pomu_chibi_3.gif";
 import walfie_finana_chibi_1 from "./pomus/walfie_finana_chibi_1.gif";
 
+/*
 type AnimatedObject = {
   src: string;
   props: HTMLMotionProps<"div">;
 };
+*/
 
 type MakeTimelineFn = (selector: string) => gsap.core.Timeline;
 
@@ -62,6 +63,7 @@ function cdim(
   return ltdim(x - width / 2, y - height / 2, width, height);
 }
 
+/*
 // cx, cy, width, height, rotation
 type TransformInput = [number, number, number, number, string];
 
@@ -94,6 +96,7 @@ function animateTransform(transforms: ReadonlyArray<TransformInput>): {
     rotate,
   };
 }
+*/
 
 const OBJECT_GROUP_KEYS = [
   "bg_text",
@@ -107,8 +110,10 @@ const OBJECT_GROUP_KEYS = [
 
 type ObjectGroupKey = typeof OBJECT_GROUP_KEYS[number];
 
+/*
 type ObjectGroup = ReadonlyArray<AnimatedObject>;
 
+// Old framer motion transitions
 const OBJECT_GROUPS: { [key in ObjectGroupKey]: ObjectGroup } = {
   // Base text animated on the background
   bg_text: [
@@ -273,6 +278,7 @@ const OBJECT_GROUPS: { [key in ObjectGroupKey]: ObjectGroup } = {
     },
   ],
 };
+*/
 
 type ObjectGroupGsap = ReadonlyArray<AnimatedObjectGsap>;
 
@@ -326,8 +332,8 @@ const OBJECT_GROUPS_GSAP: { [key in ObjectGroupKey]: ObjectGroupGsap } = {
       src: p1,
       makeTimeline: (selector: string): gsap.core.Timeline => {
         const tl = new gsap.core.Timeline({ repeat: -1 });
-        tl.set(selector, { rotate: "15deg" });
-        tl.set(selector, { rotate: "-15deg" }, 0.6);
+        tl.set(selector, { rotate: "-15deg" });
+        tl.set(selector, { rotate: "15deg" }, 0.6);
         tl.set(selector, {}, 1.2);
         return tl;
       },
@@ -343,29 +349,139 @@ const OBJECT_GROUPS_GSAP: { [key in ObjectGroupKey]: ObjectGroupGsap } = {
         const tl = new gsap.core.Timeline({ repeat: -1 });
 
         const t1 = new gsap.core.Timeline({ repeat: 3 });
-        t1.set(selector, { ...cdim(1170, 1188, 508, 699), rotate: "165deg" });
+        t1.set(selector, {
+          ...cdim(1170, 1188, 508, 699),
+          scaleX: -1,
+          rotate: "165deg",
+        });
         t1.set(selector, { rotate: "-165deg" }, 0.6);
         t1.set(selector, {}, 1.2);
         tl.add(t1);
 
         const t2 = new gsap.core.Timeline({ repeat: 3 });
-        t2.set(selector, { ...cdim(1809, 498, 508, 699), rotate: "65deg" });
-        t2.set(selector, { rotate: "115deg" }, 0.6);
+        t2.set(selector, {
+          ...cdim(1809, 498, 508, 699),
+          scaleX: 1,
+          rotate: "-65deg",
+        });
+        t2.set(selector, { rotate: "-115deg" }, 0.6);
         t2.set(selector, {}, 1.2);
         tl.add(t2);
 
-        const t3 = new gsap.core.Timeline({ repeat: 3 });
-        t3.set(selector, { ...cdim(730, 703, 508, 699), rotate: "165deg" });
+        const t3 = new gsap.core.Timeline();
+        t3.set(selector, {
+          ...cdim(730, 703, 508, 699),
+          scaleX: -1,
+          rotate: "165deg",
+        });
         t3.set(selector, { rotate: "-165deg" }, 0.6);
-        t3.set(selector, {}, 1.2);
+        t3.set(selector, { rotate: "165deg" }, 1.2);
+        t3.set(selector, {}, 1.8);
         tl.add(t3);
+
+        const t4 = new gsap.core.Timeline({ repeat: 1 });
+        t4.set(selector, {
+          ...cdim(480, 58, 508, 699),
+          scaleX: -1,
+          rotate: "-165deg",
+        });
+        t4.set(selector, { rotate: "165deg" }, 0.6);
+        t4.set(selector, {}, 1.2);
+        tl.add(t4);
+
+        const t5 = new gsap.core.Timeline();
+        t5.set(selector, {
+          ...cdim(1495, 125, 508, 699),
+          scaleX: -1,
+          rotate: "-165deg",
+        });
+        t5.set(selector, { rotate: "165deg" }, 0.6);
+        t5.set(selector, { rotate: "-165deg" }, 1.2);
+        t5.set(selector, { rotate: "165deg" }, 1.8);
+        t5.set(selector, { rotate: "-165deg" }, 2.4);
+        t5.set(selector, {}, 3.0);
+        tl.add(t5);
+
+        const t6 = new gsap.core.Timeline();
+        t6.set(selector, {
+          ...cdim(125, -30, 508, 699),
+          scaleX: -1,
+          rotate: "165deg ",
+        });
+        t6.set(selector, { rotate: "-165deg" }, 0.6);
+        t6.set(selector, { rotate: "165deg" }, 1.2);
+        t6.set(selector, { rotate: "-165deg" }, 1.8);
+        t6.set(selector, { rotate: "165deg" }, 2.4);
+        t6.set(selector, {}, 3.0);
+        tl.add(t6);
+
+        const t7 = new gsap.core.Timeline();
+        t7.set(selector, {
+          ...cdim(1247, 1227, 1533, 2109),
+          scaleX: 1,
+          rotate: "15deg ",
+        });
+        t7.set(selector, { rotate: "-15deg" }, 0.6);
+        t7.set(selector, { rotate: "15deg" }, 1.2);
+        t7.set(selector, { rotate: "-15deg" }, 1.8);
+        t7.set(selector, { rotate: "15deg" }, 2.4);
+        t7.set(selector, { rotate: "-15deg" }, 3.0);
+        t7.set(selector, { rotate: "15deg" }, 3.6);
+        t7.set(selector, {}, 4.2);
+        tl.add(t7);
+
+        const t8 = new gsap.core.Timeline();
+        t8.set(selector, {
+          ...cdim(1017, 519, 508, 699),
+          scaleX: -1,
+          rotate: "165deg",
+        });
+        t8.set(selector, { rotate: "-165deg" }, 0.6);
+        t8.set(selector, { rotate: "165deg" }, 1.2);
+        t8.set(selector, {}, 1.8);
+        tl.add(t8);
+
+        const t9 = new gsap.core.Timeline({ repeat: 6 });
+        t9.set(selector, {
+          ...cdim(1495, 125, 508, 699),
+          scaleX: -1,
+          rotate: "-165deg",
+        });
+        t9.set(selector, { rotate: "165deg" }, 0.6);
+        t9.set(selector, {}, 1.2);
+        tl.add(t9);
+
+        const t10 = new gsap.core.Timeline();
+        t10.set(selector, { rotate: "-165deg" });
+        t10.set(selector, {}, 0.6);
+        tl.add(t10);
+
+        const t11 = new gsap.core.Timeline();
+        t11.set(selector, {
+          ...cdim(332, 124, 508, 699),
+          scaleX: -1,
+          rotate: "165deg",
+        });
+        t11.set(selector, { rotate: "-165deg" }, 0.6);
+        t11.set(selector, { rotate: "165deg" }, 1.2);
+        t11.set(selector, {}, 1.8);
+        tl.add(t11);
+
+        const t12 = new gsap.core.Timeline();
+        t12.set(selector, {
+          ...cdim(329, 703, 508, 699),
+          scaleX: -1,
+          rotate: "-165deg",
+        });
+        t12.set(selector, { rotate: "165deg" }, 0.6);
+        t12.set(selector, { rotate: "-165deg" }, 1.2);
+        t12.set(selector, {}, 1.8);
+        tl.add(t12);
 
         return tl;
       },
       props: {
-        style: {
-          scale: "-1",
-        },
+        style: {},
       },
     },
   ],
