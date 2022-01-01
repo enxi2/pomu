@@ -1,29 +1,33 @@
 {
   "files": {
-    "main.css": "/pomu/static/css/main.938d0762.chunk.css",
-    "main.js": "/pomu/static/js/main.aa3cba58.chunk.js",
-    "main.js.map": "/pomu/static/js/main.aa3cba58.chunk.js.map",
+    "main.css": "/pomu/static/css/main.6502db12.chunk.css",
+    "main.js": "/pomu/static/js/main.9247fbb7.chunk.js",
+    "main.js.map": "/pomu/static/js/main.9247fbb7.chunk.js.map",
     "runtime-main.js": "/pomu/static/js/runtime-main.2abf3ec9.js",
     "runtime-main.js.map": "/pomu/static/js/runtime-main.2abf3ec9.js.map",
-    "static/js/2.02b7657c.chunk.js": "/pomu/static/js/2.02b7657c.chunk.js",
-    "static/js/2.02b7657c.chunk.js.map": "/pomu/static/js/2.02b7657c.chunk.js.map",
+    "static/js/2.60b2e206.chunk.js": "/pomu/static/js/2.60b2e206.chunk.js",
+    "static/js/2.60b2e206.chunk.js.map": "/pomu/static/js/2.60b2e206.chunk.js.map",
     "index.html": "/pomu/index.html",
-    "static/css/main.938d0762.chunk.css.map": "/pomu/static/css/main.938d0762.chunk.css.map",
-    "static/js/2.02b7657c.chunk.js.LICENSE.txt": "/pomu/static/js/2.02b7657c.chunk.js.LICENSE.txt",
+    "static/css/main.6502db12.chunk.css.map": "/pomu/static/css/main.6502db12.chunk.css.map",
+    "static/js/2.60b2e206.chunk.js.LICENSE.txt": "/pomu/static/js/2.60b2e206.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/pomu/static/media/bg.555142f0.png",
+    "static/media/information-circle.247c7d91.svg": "/pomu/static/media/information-circle.247c7d91.svg",
     "static/media/p1.26538280.png": "/pomu/static/media/p1.26538280.png",
-    "static/media/play_circle_black_24dp.30b84ade.svg": "/pomu/static/media/play_circle_black_24dp.30b84ade.svg",
+    "static/media/play-circle.bb7739ea.svg": "/pomu/static/media/play-circle.bb7739ea.svg",
     "static/media/please_wait.cf6a42fc.png": "/pomu/static/media/please_wait.cf6a42fc.png",
     "static/media/puffing_the_pomus.7cf6e691.png": "/pomu/static/media/puffing_the_pomus.7cf6e691.png",
     "static/media/walfie_finana_chibi_1.854b00b6.gif": "/pomu/static/media/walfie_finana_chibi_1.854b00b6.gif",
     "static/media/walfie_pomu_chibi_1.e61780b0.gif": "/pomu/static/media/walfie_pomu_chibi_1.e61780b0.gif",
     "static/media/walfie_pomu_chibi_2.843b2ae8.gif": "/pomu/static/media/walfie_pomu_chibi_2.843b2ae8.gif",
-    "static/media/walfie_pomu_chibi_3.b8e44366.gif": "/pomu/static/media/walfie_pomu_chibi_3.b8e44366.gif"
+    "static/media/walfie_pomu_chibi_3.b8e44366.gif": "/pomu/static/media/walfie_pomu_chibi_3.b8e44366.gif",
+    "static/media/walfie_pomu_chibi_4.4c767a26.gif": "/pomu/static/media/walfie_pomu_chibi_4.4c767a26.gif",
+    "static/media/walfie_pomu_chibi_5.dacf4060.gif": "/pomu/static/media/walfie_pomu_chibi_5.dacf4060.gif",
+    "static/media/walfie_pomu_chibi_6.dee66815.gif": "/pomu/static/media/walfie_pomu_chibi_6.dee66815.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.2abf3ec9.js",
-    "static/js/2.02b7657c.chunk.js",
-    "static/css/main.938d0762.chunk.css",
-    "static/js/main.aa3cba58.chunk.js"
+    "static/js/2.60b2e206.chunk.js",
+    "static/css/main.6502db12.chunk.css",
+    "static/js/main.9247fbb7.chunk.js"
   ]
 }
