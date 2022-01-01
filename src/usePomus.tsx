@@ -6,7 +6,7 @@ import puffing_the_pomus from "./pomus/0/puffing_the_pomus.png";
 import p1 from "./pomus/1/p1.png";
 // https://twitter.com/walfieee/status/1394080386431524868
 import walfie_pomu_chibi_1 from "./pomus/walfie_pomu_chibi_1.gif";
-// // https://twitter.com/walfieee/status/1414435834246406150
+// https://twitter.com/walfieee/status/1414435834246406150
 import walfie_pomu_chibi_2 from "./pomus/walfie_pomu_chibi_2.gif";
 // https://twitter.com/walfieee/status/1408645860813119489
 import walfie_pomu_chibi_3 from "./pomus/walfie_pomu_chibi_3.gif";

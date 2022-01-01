@@ -1,11 +1,12 @@
 import gsap from "gsap";
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 
-import "./App.scss";
+import InfoModal from "./InfoModal";
+import usePomus, { MAX_POMUS } from "./usePomus";
 
 import infoCircle from "./information-circle.svg";
 import playCircle from "./play-circle.svg";
-import usePomus, { MAX_POMUS } from "./usePomus";
+import "./App.scss";
 
 type Dimensions = {
   width: number;
@@ -29,6 +30,7 @@ export default function App(): JSX.Element {
     width: 0,
     height: 0,
   });
+  const [infoModalOpen, setInfoModalOpen] = useState<boolean>(false);
   const [paused, setPaused] = useState<boolean>(false);
   const [pomus, setPomus] = useState<number>(1);
   const [shape, setShape] = useState<string>("");
@@ -116,7 +118,8 @@ export default function App(): JSX.Element {
   return (
     <div className="app">
       <header>
-        Pomu Intro Version: {pomus} {/* TODO: change to <select> for mobile */}
+        {/* TODO put this into the modal
+        Pomu Intro Version: {pomus}
         <input
           type="range"
           min={0}
@@ -126,7 +129,13 @@ export default function App(): JSX.Element {
           }
           value={pomus}
         />
-        <img src={infoCircle} alt="info" className="info" />
+        */}
+        <img
+          src={infoCircle}
+          alt="info"
+          className="info"
+          onClick={(): void => setInfoModalOpen(true)}
+        />
       </header>
       <main ref={main} className={shape}>
         {paused ? (
@@ -154,6 +163,7 @@ export default function App(): JSX.Element {
         src={`${process.env.PUBLIC_URL}/media/sheep.mp3`}
         ref={audio}
       />
+      <InfoModal isOpen={infoModalOpen} setIsOpen={setInfoModalOpen} />
     </div>
   );
 }
