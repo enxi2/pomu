@@ -4,9 +4,19 @@ import { HTMLAttributes, useMemo } from "react";
 import please_wait from "./pomus/0/please_wait.png";
 import puffing_the_pomus from "./pomus/0/puffing_the_pomus.png";
 import p1 from "./pomus/1/p1.png";
-import walfie_pomu_chibi_1 from "./pomus/2/walfie_pomu_chibi_1.gif";
-import walfie_pomu_chibi_2 from "./pomus/3/walfie_pomu_chibi_2.gif";
-import walfie_pomu_chibi_3 from "./pomus/4/walfie_pomu_chibi_3.gif";
+// https://twitter.com/walfieee/status/1394080386431524868
+import walfie_pomu_chibi_1 from "./pomus/walfie_pomu_chibi_1.gif";
+// // https://twitter.com/walfieee/status/1414435834246406150
+import walfie_pomu_chibi_2 from "./pomus/walfie_pomu_chibi_2.gif";
+// https://twitter.com/walfieee/status/1408645860813119489
+import walfie_pomu_chibi_3 from "./pomus/walfie_pomu_chibi_3.gif";
+// https://twitter.com/walfieee/status/1395616635327848449
+import walfie_pomu_chibi_4 from "./pomus/walfie_pomu_chibi_4.gif";
+// https://twitter.com/walfieee/status/1409004073647493120
+import walfie_pomu_chibi_5 from "./pomus/walfie_pomu_chibi_5.gif";
+// https://twitter.com/walfieee/status/1427020493127815170
+import walfie_pomu_chibi_6 from "./pomus/walfie_pomu_chibi_6.gif";
+// https://twitter.com/walfieee/status/1407137606828187652
 import walfie_finana_chibi_1 from "./pomus/walfie_finana_chibi_1.gif";
 
 /*
@@ -106,6 +116,8 @@ const OBJECT_GROUP_KEYS = [
   "walfie_pomu_chibi_3",
   "walfie_finana_chibi_1",
   "walfie_pomu_chibi_3b",
+  "walfie_pomu_chibis_1",
+  "pomus_1",
 ] as const;
 
 type ObjectGroupKey = typeof OBJECT_GROUP_KEYS[number];
@@ -513,7 +525,6 @@ const OBJECT_GROUPS_GSAP: { [key in ObjectGroupKey]: ObjectGroupGsap } = {
     },
   ],
   // Money tossing chibi Pomu
-  // https://twitter.com/walfieee/status/1408645860813119489
   walfie_pomu_chibi_3: [
     {
       src: walfie_pomu_chibi_3,
@@ -526,7 +537,6 @@ const OBJECT_GROUPS_GSAP: { [key in ObjectGroupKey]: ObjectGroupGsap } = {
     },
   ],
   // Birthday chips eating chibi Finana
-  // https://twitter.com/walfieee/status/1407137606828187652
   walfie_finana_chibi_1: [
     {
       src: walfie_finana_chibi_1,
@@ -550,6 +560,73 @@ const OBJECT_GROUPS_GSAP: { [key in ObjectGroupKey]: ObjectGroupGsap } = {
       },
     },
   ],
+  // A bunch of chibi Pomus
+  walfie_pomu_chibis_1: [
+    {
+      src: walfie_pomu_chibi_3,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...cdim(670, 384, 204, 204),
+        },
+      },
+    },
+    {
+      src: walfie_pomu_chibi_1,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...cdim(831, 395, 184, 184),
+        },
+      },
+    },
+    {
+      src: walfie_pomu_chibi_2,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...cdim(991, 384, 183, 183),
+        },
+      },
+    },
+    {
+      src: walfie_pomu_chibi_4,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...cdim(1140, 391, 153, 184),
+        },
+      },
+    },
+    {
+      src: walfie_pomu_chibi_5,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...cdim(1282, 394, 184, 169),
+        },
+      },
+    },
+    {
+      src: walfie_pomu_chibi_6,
+      makeTimeline: NO_TIMELINE,
+      props: {
+        style: {
+          ...cdim(1466, 399, 179, 179),
+        },
+      },
+    },
+  ],
+  // Assorted other animated Pomus
+  // https://twitter.com/RoamingTuna/status/1419452403506552834
+  // https://twitter.com/fumikoreturn/status/1420562421039644673
+  // https://twitter.com/suminoja/status/1425370317740855299
+  // https://twitter.com/hikikomorinz/status/1420678509714833411
+  // https://twitter.com/Coal/status/1396994013576634368
+  // https://twitter.com/MelonbreadFBP/status/1405559538284064772
+  // https://twitter.com/chrone_co/status/1414492689286926337
+  // https://twitter.com/Hyn_yoho/status/1414194171720593414
+  pomus_1: [],
 };
 
 const VERSIONS: ReadonlyArray<ReadonlyArray<ObjectGroupKey>> = [
@@ -574,7 +651,7 @@ const VERSIONS: ReadonlyArray<ReadonlyArray<ObjectGroupKey>> = [
   ["bg_text", "original_pomus", "walfie_pomu_chibi_3b"],
   // Oh man it exploded
   // https://www.youtube.com/watch?v=QE7uuTEezR0
-  // TODO
+  ["bg_text", "original_pomus", "walfie_pomu_chibis_1"],
   // Things adjusted
   // https://www.youtube.com/watch?v=8_VeRNE7LhQ
   // TODO

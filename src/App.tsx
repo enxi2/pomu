@@ -3,7 +3,8 @@ import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 
 import "./App.scss";
 
-import playCircle from "./play_circle_black_24dp.svg";
+import infoCircle from "./information-circle.svg";
+import playCircle from "./play-circle.svg";
 import usePomus, { MAX_POMUS } from "./usePomus";
 
 type Dimensions = {
@@ -29,7 +30,7 @@ export default function App(): JSX.Element {
     height: 0,
   });
   const [paused, setPaused] = useState<boolean>(false);
-  const [pomus, setPomus] = useState<number>(MAX_POMUS);
+  const [pomus, setPomus] = useState<number>(1);
   const [shape, setShape] = useState<string>("");
   const [windowSize, setWindowSize] = useState<Dimensions>({
     width: window.innerWidth,
@@ -125,7 +126,7 @@ export default function App(): JSX.Element {
           }
           value={pomus}
         />
-        <button>?</button>
+        <img src={infoCircle} alt="info" className="info" />
       </header>
       <main ref={main} className={shape}>
         {paused ? (
