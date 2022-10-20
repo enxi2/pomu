@@ -1,0 +1,58 @@
+.share {
+  max-width: 30rem;
+  max-height: 30rem;
+  margin: 2rem auto;
+  border: 1px solid #0f172a;
+  border-radius: 0.5rem;
+  background-color: #f8fafc;
+  padding: 1rem;
+
+  h1 {
+    margin: 0;
+    float: left;
+  }
+  button {
+    float: right;
+  }
+}
+
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin: 0.5rem;
+  clear: both;
+  border: 1px solid #94a3b8;
+  border-radius: 0.25rem;
+  background-color: #f1f5f9;
+  padding: 0.5rem;
+
+  a {
+    max-height: 8rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    word-break: break-all;
+    overflow: auto;
+  }
+  svg {
+    flex-shrink: 0;
+    width: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+.copied {
+  color: #15803d;
+  font-size: 1.25rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity ease-out 1s;
+
+  &.clicked {
+    opacity: 0.99;
+    transition: none;
+  }
+}
