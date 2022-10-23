@@ -28,7 +28,7 @@ export default function InfoModal(props: {
         <button onClick={close}>Close</button>
         <hr />
         <p>
-          Build your own Pomu
+          Build your own
           <Link src="https://www.nijisanji.jp/en/members/pomu-rainpuff">
             Pomu Rainpuff
           </Link>{" "}
@@ -45,7 +45,7 @@ export default function InfoModal(props: {
           or{" "}
           <Link src="mailto:erin.xi@outlook.com">erin.xi at outlook.com</Link>
         </p>
-        <h2>Artwork and media credits</h2>
+        <h2>Artwork and media sources</h2>
         <ul>
           <li>
             <Link src="https://www.nijisanji.jp/en/members/pomu-rainpuff">
@@ -96,23 +96,23 @@ export default function InfoModal(props: {
           </li>
           <li>
             KelpieBoye (
-            <Link src="https://twitter.com/KelpieBoye">@KelpieBoye</Link>
+            <Link src="https://twitter.com/KelpieBoye">@KelpieBoye</Link>)
           </li>
           <li>
             James Choo (
-            <Link src="https://twitter.com/jameschoo_004">@jameschoo_004</Link>
+            <Link src="https://twitter.com/jameschoo_004">@jameschoo_004</Link>)
           </li>
           <li>
             Kay Yu (
-            <Link src="https://twitter.com/kaynimatic">@kaynimatic</Link>
+            <Link src="https://twitter.com/kaynimatic">@kaynimatic</Link>)
           </li>
           <li>
             KukieNyan (
-            <Link src="https://twitter.com/Kukie_nyan">@Kukie_nyan</Link>
+            <Link src="https://twitter.com/Kukie_nyan">@Kukie_nyan</Link>)
           </li>
           <li>
             ClaireGua (
-            <Link src="https://twitter.com/Claire_ovo">@Claire_ovo</Link>
+            <Link src="https://twitter.com/Claire_ovo">@Claire_ovo</Link>)
           </li>
         </ul>
       </div>
