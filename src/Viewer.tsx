@@ -78,7 +78,9 @@ export default function Viewer() {
         />
       </header>
       <main ref={main}>
-        <ReadonlyStage background={background} items={items} />
+        <div className={styles.stage}>
+          <ReadonlyStage background={background} items={items} />
+        </div>
       </main>
       <audio
         autoPlay={true}
