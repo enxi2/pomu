@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pomu/static/css/main.e8c71282.chunk.css",
-    "main.js": "/pomu/static/js/main.03a0297c.chunk.js",
-    "main.js.map": "/pomu/static/js/main.03a0297c.chunk.js.map",
+    "main.css": "/pomu/static/css/main.934e27e5.chunk.css",
+    "main.js": "/pomu/static/js/main.d04943af.chunk.js",
+    "main.js.map": "/pomu/static/js/main.d04943af.chunk.js.map",
     "runtime-main.js": "/pomu/static/js/runtime-main.2abf3ec9.js",
     "runtime-main.js.map": "/pomu/static/js/runtime-main.2abf3ec9.js.map",
-    "static/js/2.1b27b6f4.chunk.js": "/pomu/static/js/2.1b27b6f4.chunk.js",
-    "static/js/2.1b27b6f4.chunk.js.map": "/pomu/static/js/2.1b27b6f4.chunk.js.map",
+    "static/js/2.379d2d1b.chunk.js": "/pomu/static/js/2.379d2d1b.chunk.js",
+    "static/js/2.379d2d1b.chunk.js.map": "/pomu/static/js/2.379d2d1b.chunk.js.map",
     "index.html": "/pomu/index.html",
-    "static/css/main.e8c71282.chunk.css.map": "/pomu/static/css/main.e8c71282.chunk.css.map",
-    "static/js/2.1b27b6f4.chunk.js.LICENSE.txt": "/pomu/static/js/2.1b27b6f4.chunk.js.LICENSE.txt",
+    "static/css/main.934e27e5.chunk.css.map": "/pomu/static/css/main.934e27e5.chunk.css.map",
+    "static/js/2.379d2d1b.chunk.js.LICENSE.txt": "/pomu/static/js/2.379d2d1b.chunk.js.LICENSE.txt",
     "static/media/bg.555142f0.png": "/pomu/static/media/bg.555142f0.png",
     "static/media/bg2.f695abf2.png": "/pomu/static/media/bg2.f695abf2.png",
     "static/media/chroneco_pomu_jumping.482a5be2.gif": "/pomu/static/media/chroneco_pomu_jumping.482a5be2.gif",
@@ -52,8 +52,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2abf3ec9.js",
-    "static/js/2.1b27b6f4.chunk.js",
-    "static/css/main.e8c71282.chunk.css",
-    "static/js/main.03a0297c.chunk.js"
+    "static/js/2.379d2d1b.chunk.js",
+    "static/css/main.934e27e5.chunk.css",
+    "static/js/main.d04943af.chunk.js"
   ]
 }
