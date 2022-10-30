@@ -72,6 +72,7 @@ export default function Toolbox(props: ToolboxProps): JSX.Element {
         <button onClick={confirmClearAll}>Clear all</button>
       </div>
       <div className={styles.itemsDrawer}>
+        <p>Click and drag into the editor</p>
         {availableItems.map((id) => (
           <div key={id} className={styles.item}>
             <img
