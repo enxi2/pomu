@@ -30,7 +30,6 @@ export default function ShareModal(props: {
 
   useEffect(() => {
     if (isOpen) {
-      console.log(itemsRef.current);
       const serialized = PomuSerdes.serialize(background, itemsRef.current);
       setShareUrl(
         `${window.location.origin}${window.location.pathname}#/view/${serialized}`

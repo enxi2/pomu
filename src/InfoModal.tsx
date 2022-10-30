@@ -28,7 +28,7 @@ export default function InfoModal(props: {
         <button onClick={close}>Close</button>
         <hr />
         <p>
-          Build your own
+          Build your own{" "}
           <Link src="https://www.nijisanji.jp/en/members/pomu-rainpuff">
             Pomu Rainpuff
           </Link>{" "}

@@ -2,6 +2,7 @@ import InformationCircleIcon from "@heroicons/react/24/outline/InformationCircle
 import PauseCircleIcon from "@heroicons/react/24/outline/PauseCircleIcon";
 import PlayCircleIcon from "@heroicons/react/24/outline/PlayCircleIcon";
 import ShareIcon from "@heroicons/react/24/outline/ShareIcon";
+import { Link } from "react-router-dom";
 
 import styles from "./Header.module.scss";
 
@@ -28,7 +29,9 @@ export default function Header(props: HeaderProps): JSX.Element {
 
   return (
     <div className={styles.header}>
-      <h1>Build your own Pomu intro</h1>
+      <h1>
+        <Link to="/edit">Build your own Pomu intro</Link>
+      </h1>
       <div className={styles.actions}>
         <InformationCircleIcon onClick={() => setInfoModalOpen(true)} />
         <label>BGM&nbsp;</label>
