@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/pomu/static/css/main.e45ddc87.chunk.css",
-    "main.js": "/pomu/static/js/main.e91a4f46.chunk.js",
-    "main.js.map": "/pomu/static/js/main.e91a4f46.chunk.js.map",
+    "main.css": "/pomu/static/css/main.8c22099a.chunk.css",
+    "main.js": "/pomu/static/js/main.cacc4ca2.chunk.js",
+    "main.js.map": "/pomu/static/js/main.cacc4ca2.chunk.js.map",
     "runtime-main.js": "/pomu/static/js/runtime-main.2abf3ec9.js",
     "runtime-main.js.map": "/pomu/static/js/runtime-main.2abf3ec9.js.map",
     "static/js/2.379d2d1b.chunk.js": "/pomu/static/js/2.379d2d1b.chunk.js",
     "static/js/2.379d2d1b.chunk.js.map": "/pomu/static/js/2.379d2d1b.chunk.js.map",
     "index.html": "/pomu/index.html",
-    "static/css/main.e45ddc87.chunk.css.map": "/pomu/static/css/main.e45ddc87.chunk.css.map",
+    "static/css/main.8c22099a.chunk.css.map": "/pomu/static/css/main.8c22099a.chunk.css.map",
     "static/js/2.379d2d1b.chunk.js.LICENSE.txt": "/pomu/static/js/2.379d2d1b.chunk.js.LICENSE.txt",
     "static/media/bg.555142f0.png": "/pomu/static/media/bg.555142f0.png",
     "static/media/bg2.f695abf2.png": "/pomu/static/media/bg2.f695abf2.png",
@@ -53,7 +53,7 @@
   "entrypoints": [
     "static/js/runtime-main.2abf3ec9.js",
     "static/js/2.379d2d1b.chunk.js",
-    "static/css/main.e45ddc87.chunk.css",
-    "static/js/main.e91a4f46.chunk.js"
+    "static/css/main.8c22099a.chunk.css",
+    "static/js/main.cacc4ca2.chunk.js"
   ]
 }
